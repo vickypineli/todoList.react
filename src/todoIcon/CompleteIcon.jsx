@@ -1,15 +1,18 @@
-import { TodoIcon } from './';
+import PropTypes from 'prop-types';
+import TodoIcon from './TodoIcon';
 
-function CompleteIcon({ completed, onComplete }) {
-  console.log('completed-----',completed)
- 
-  return (
-    <TodoIcon
-      type="check"
-      color={completed ? 'green' : 'gray'}
-      onClick={onComplete}
-    />
-  );
-}
+const CompleteIcon = ({ completed, onComplete }) => (
+  <TodoIcon
+    type="check"
+    color={completed ? 'green' : 'gray'}
+    onClick={onComplete}
+  />
+);
+
+CompleteIcon.propTypes = {
+  completed: PropTypes.bool.isRequired,
+  onComplete: PropTypes.func.isRequired,
+};
 
 export { CompleteIcon };
+
