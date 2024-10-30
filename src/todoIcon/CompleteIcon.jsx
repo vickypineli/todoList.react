@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import TodoIcon from './TodoIcon';
+import { TodoIcon } from '../todoIcon/TodoIcon';
 
 const CompleteIcon = ({ completed, onComplete }) => (
   <TodoIcon

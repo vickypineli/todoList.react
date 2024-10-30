@@ -10,7 +10,7 @@ import { TodosLoading } from './todosLoading/TodosLoading';
 import { EmptyTodos } from './emptyTodos/EmptyTodos';
 import { TodoForm } from './todoForm/TodoForm';
 import { CreateTodoButton } from './createTodoButton/CreateTodoButton';
-import { Modal } from './modal/Modal';
+import  Modal  from './modal/Modal';
 
 function App() {
   const {
@@ -57,12 +57,5 @@ function App() {
   );
 }
 
-export { App };
+export default App;
 
-
-// Lo interesante es que podemos pasarle otros componentes 
-// y hasta tener acceso al contexto de nuestra aplicación al 
-// importar nuestro modal dentro de la aplicación.
-// El hook de contexto nos ayuda a acceder a datos globales de nuestro contexto, desde cualquier componente hijo, sin tener que pasar estos datos por props componente por componente.
-
-// Tiene la misma funcionalidad que el consumer de nuestro contexto, pero useContext también tiene una manera más sencilla de utilizar y una sintaxis mucho más clara.
