@@ -15,7 +15,7 @@ function CreateTodoButton({ setOpenModal }) {
 
 // Validación de props
 CreateTodoButton.propTypes = {
-  setOpenModal: PropTypes.func.isRequired, // Asegúrate de que setOpenModal sea una función
+  setOpenModal: PropTypes.func.isRequired, 
 };
 
 export { CreateTodoButton };

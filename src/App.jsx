@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { TodoContext } from './todoContext/TodoContext';
 import { TodoCounter } from './todoCounter/TodoCounter';
 import { TodoSearch } from './todoSearch/TodoSearch';
@@ -10,7 +9,7 @@ import { TodosLoading } from './todosLoading/TodosLoading';
 import { EmptyTodos } from './emptyTodos/EmptyTodos';
 import { TodoForm } from './todoForm/TodoForm';
 import { CreateTodoButton } from './createTodoButton/CreateTodoButton';
-import  Modal  from './modal/Modal';
+import Modal from './modal/Modal';
 
 function App() {
   const {
@@ -22,7 +21,7 @@ function App() {
     openModal,
     setOpenModal,
   } = React.useContext(TodoContext);
-  
+ 
   return (
     <React.Fragment>
       <TodoCounter />
@@ -32,7 +31,7 @@ function App() {
         {error && <TodosError />}
         {loading && <TodosLoading />}
         {(!loading && !searchedTodos.length) && <EmptyTodos />}
-        
+
         {searchedTodos.map(todo => (
           <TodoItem
             key={todo.text}
@@ -50,9 +49,7 @@ function App() {
         </Modal>
       )}
 
-      <CreateTodoButton
-        setOpenModal={setOpenModal}
-      />
+      <CreateTodoButton setOpenModal={setOpenModal} />
     </React.Fragment>
   );
 }

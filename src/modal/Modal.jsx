@@ -1,13 +1,19 @@
-import ReactDOM from 'react-dom';
+
+import PropTypes from 'prop-types';
 import './Modal.css';
 
 function Modal({ children }) {
-  return ReactDOM.createPortal(
+  return (
     <div className="ModalBackground">
-      {children}
-    </div>,
-    document.getElementById('modal')
+      <div className="ModalContainer">
+        {children}
+      </div>
+    </div>
   );
 }
+
+Modal.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Modal;
