@@ -1,8 +1,15 @@
+// src/todoIcon/DeleteIcon.jsx
+
 import PropTypes from 'prop-types';
-import  TodoIcon  from './TodoIcon';
+import TodoIcon from './TodoIcon';
+
 
 const DeleteIcon = ({ onDelete }) => (
-  <TodoIcon type="delete" onClick={onDelete} />
+  <TodoIcon
+    iconPath={'/icons/delete.png'} // Ruta del icono SVG de la imagen de deleteIcon" 
+    color="red" // Color controlado en el contenedor
+    onClick={onDelete}
+  />
 );
 
 DeleteIcon.propTypes = {

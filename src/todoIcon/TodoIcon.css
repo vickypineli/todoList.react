@@ -1,6 +1,7 @@
 .Icon-container {
     cursor: pointer;
-    display: flex;
+    /* display: flex; */
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     height: 48px;
@@ -18,8 +19,10 @@
   }
   
   .Icon-svg {
-    width: 24px;
-    height: 24px;
+    width: 100%;
+    height: 100%;
+    /* width: 24px;
+    height: 24px; */
     transition: fill .15s;
   }
   .Icon-container:hover .Icon-svg--check {

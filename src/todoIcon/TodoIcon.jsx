@@ -1,52 +1,36 @@
-
 import PropTypes from 'prop-types';
-import CheckSVG from './check.svg';
-import DeleteSVG from './delete.svg';
 import './TodoIcon.css';
 
-// const iconTypes = {
-//   "check": color => (
-//     <img src={CheckSVG} className="Icon-svg Icon-svg--check" alt="Check" />
-//   ),
-//   "delete": color => (
-//     <img src={DeleteSVG} className="Icon-svg Icon-svg--delete" alt="Delete" />
-//   ),
-// };
-
-const iconTypes = {
-    "check": color => (
-      <img src={CheckSVG} className="Icon-svg Icon-svg--check" alt="Check" style={{ fill: color }} />
-    ),
-    "delete": color => (
-      <img src={DeleteSVG} className="Icon-svg Icon-svg--delete" alt="Delete" style={{ fill: color }} />
-    ),
-  };
-// const iconTypes = {
-//     "check": color => (
-//       <CheckSVG className="Icon-svg Icon-svg--check" fill={color} />
-//     ),
-//     "delete": color => (
-//       <DeleteSVG className="Icon-svg Icon-svg--delete" fill={color} />
-//     ),
-//   };
-
-function TodoIcon({ type, color = 'gray', onClick }) {
+function TodoIcon({ iconPath, color = 'gray', size = 24, onClick }) {
   return (
     <span
-      className={`Icon-container Icon-container--${type}`}
+      className={`Icon-container`} // Clase para estilos en CSS
       onClick={onClick}
+      style={{
+        width: size,
+        height: size,
+        color, // Color controlado en el contenedor
+      }}
     >
-      {iconTypes[type](color)}
+      <img
+        src={iconPath} // Ruta directa al archivo SVG
+        alt="icon"
+        className="Icon-svg"
+        style={{
+          width: '100%',
+          height: '100%',
+          filter: color === 'gray' ? 'grayscale(100%)' : 'none', // Opción para escala de grises
+        }}
+      />
     </span>
   );
 }
 
 TodoIcon.propTypes = {
-  type: PropTypes.oneOf(['check', 'delete']).isRequired,
+  iconPath: PropTypes.string.isRequired, // Ruta del icono SVG
   color: PropTypes.string,
+  size: PropTypes.number,
   onClick: PropTypes.func,
 };
-
-
 
 export default TodoIcon;
