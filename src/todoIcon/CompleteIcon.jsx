@@ -4,13 +4,17 @@ import PropTypes from 'prop-types';
 import TodoIcon from './TodoIcon';
 
 
-const CompleteIcon = ({ completed, onComplete }) => (
-  <TodoIcon
-    iconPath={'/icons/check.png'}
-    color={completed ? 'green' : 'gray'}
-    onClick={onComplete}
-  />
-);
+const CompleteIcon = ({ completed, onComplete }) => {
+
+  return (
+    <TodoIcon
+      iconPath={'/icons/check.png'}
+      color={completed ? 'orange' : 'gray'}
+      onClick={onComplete}
+    />
+  );
+};
+
 
 CompleteIcon.propTypes = {
   completed: PropTypes.bool.isRequired,

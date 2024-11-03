@@ -1,33 +1,33 @@
-import PropTypes from 'prop-types'; 
-import { CompleteIcon } from '../todoIcon/CompleteIcon'; // Importando src/todoIcon/CompleteIcon.jsx
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { CompleteIcon } from '../todoIcon/CompleteIcon';
 import { DeleteIcon } from '../todoIcon/DeleteIcon';
 import './TodoItem.css';
 
-function TodoItem(props) {
+const TodoItem = ({ initialCompleted, onComplete, text, onDelete }) => {
+  const [completed, setCompleted] = useState(initialCompleted);
+
+  const handleToggleComplete = () => {
+    setCompleted((prevCompleted) => !prevCompleted);
+    onComplete();
+  };
+
   return (
     <li className="TodoItem">
-      <CompleteIcon
-        completed={props.completed}
-        onComplete={props.onComplete}
-      />
-      <p
-        className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}
-      >
-        {props.text}
+      <CompleteIcon completed={completed} onComplete={handleToggleComplete} />
+      <p className={`TodoItem-p ${completed && 'TodoItem-p--complete'}`}>
+        {text}
       </p>
-      <DeleteIcon
-        onDelete={props.onDelete}
-      />
+      <DeleteIcon onDelete={onDelete} />
     </li>
   );
-}
+};
 
-// Agregando PropTypes para validar las props
 TodoItem.propTypes = {
-  completed: PropTypes.bool.isRequired,  // Propiedad para indicar si el ítem está completado
-  onComplete: PropTypes.func.isRequired,  // Función llamada al completar el ítem
-  text: PropTypes.string.isRequired,  // Texto del ítem
-  onDelete: PropTypes.func.isRequired,  // Función llamada al eliminar el ítem
+  initialCompleted: PropTypes.bool.isRequired,
+  onComplete: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export { TodoItem };

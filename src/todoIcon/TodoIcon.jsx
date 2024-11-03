@@ -1,7 +1,8 @@
+//src/todoIcon/TodoIcon.jsx
 import PropTypes from 'prop-types';
 import './TodoIcon.css';
 
-function TodoIcon({ iconPath, color = 'gray', size = 24, onClick }) {
+function TodoIcon({ iconPath, color, size=30, onClick }) {
   return (
     <span
       className={`Icon-container`} // Clase para estilos en CSS
@@ -13,12 +14,10 @@ function TodoIcon({ iconPath, color = 'gray', size = 24, onClick }) {
       }}
     >
       <img
-        src={iconPath} // Ruta directa al archivo SVG
+        src={iconPath}
         alt="icon"
         className="Icon-svg"
         style={{
-          width: '100%',
-          height: '100%',
           filter: color === 'gray' ? 'grayscale(100%)' : 'none', // Opción para escala de grises
         }}
       />

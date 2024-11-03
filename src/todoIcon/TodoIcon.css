@@ -1,33 +1,29 @@
 .Icon-container {
     cursor: pointer;
-    /* display: flex; */
-    display: inline-flex;
+    display: flex; 
     justify-content: center;
     align-items: center;
-    height: 48px;
-    width: 48px;
-    /* background-color: #CCC; */
+
   }
+/* 
   .Icon-container--check {
     position: absolute;
-    left: 12px;
+    left: 0;
   }
+
   .Icon-container--delete {
     position: absolute;
-    top: 14px;
     right: 0;
-  }
+  } */
   
   .Icon-svg {
     width: 100%;
     height: 100%;
-    /* width: 24px;
-    height: 24px; */
     transition: fill .15s;
   }
-  .Icon-container:hover .Icon-svg--check {
+  /* .Icon-container:hover .Icon-svg--check {
     fill: #16c513;
   }
   .Icon-container:hover .Icon-svg--delete {
     fill: red;
-  }
+  } */

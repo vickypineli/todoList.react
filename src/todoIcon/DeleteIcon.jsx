@@ -6,7 +6,7 @@ import TodoIcon from './TodoIcon';
 
 const DeleteIcon = ({ onDelete }) => (
   <TodoIcon
-    iconPath={'/icons/delete.png'} // Ruta del icono SVG de la imagen de deleteIcon" 
+    iconPath={'/icons/delete.png'} 
     color="red" // Color controlado en el contenedor
     onClick={onDelete}
   />
