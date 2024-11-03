@@ -14,11 +14,12 @@ const TodoProvider = (props) => {
   const [searchValue, setSearchValue] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
 
+  // Calculamos el número total de tareas y de tareas completadas
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
+  // Filtrar tareas según el valor de búsqueda
   let searchedTodos = [];
-
   if (!searchValue.length >= 1) {
     searchedTodos = todos;
   } else {
@@ -29,6 +30,7 @@ const TodoProvider = (props) => {
     });
   }
 
+  // Función para agregar una nueva tarea
   const addTodo = (text) => {
     const newTodos = [...todos];
     newTodos.push({
@@ -38,13 +40,16 @@ const TodoProvider = (props) => {
     saveTodos(newTodos);
   };
 
-  const completeTodo = (text) => {
+  // Función para alternar entre completado y no completado
+  const toggleCompleteTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
-    newTodos[todoIndex].completed = true;
+    // Cambiamos el valor de completed a su opuesto
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodos(newTodos);
   };
 
+  // Función para eliminar una tarea
   const deleteTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
@@ -62,7 +67,7 @@ const TodoProvider = (props) => {
       setSearchValue,
       searchedTodos,
       addTodo,
-      completeTodo,
+      completeTodo: toggleCompleteTodo, // Se usa toggleCompleteTodo para alternar
       deleteTodo,
       openModal,
       setOpenModal,
@@ -72,7 +77,6 @@ const TodoProvider = (props) => {
   );
 };
 
-// Agrega la validación de PropTypes
 TodoProvider.propTypes = {
   children: PropTypes.node.isRequired, 
 };
